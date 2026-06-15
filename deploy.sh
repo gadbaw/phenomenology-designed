@@ -26,10 +26,10 @@ cp "$SRC/${PREFIX}_arcs.json"     "$BUILD/arcs.json"
 cp "$SRC/${PREFIX}_enriched.json" "$BUILD/prototype_full_enriched.json"
 
 cd "$BUILD"
-for g in gen_explorer gen_browser gen_arcs gen_viz gen_turn gen_patterns gen_glossary; do
+for g in gen_explorer gen_browser gen_arcs gen_viz gen_turn gen_affect gen_patterns gen_glossary; do
   "$PY" "$g.py" --share >/dev/null
 done
-cp index.html units.html arcs.html viz.html turn.html patterns.html guide.html "$REPO"/ 2>/dev/null || true
+cp index.html units.html arcs.html viz.html turn.html affect.html patterns.html guide.html "$REPO"/ 2>/dev/null || true
 rm -f "$REPO/corpus.html"
 echo "✓ Designed-corpus site built → $REPO"
 echo "  (authors/affect for newly-acquired docs may be sparse until extract_authors.py + extract_affect.py are run on $PREFIX data)"
